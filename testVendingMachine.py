@@ -16,6 +16,9 @@ class testVendingMachine(unittest.TestCase):
     def test_5_stock_is_5(self):
         five_vm = VendingMachine.VendingMachine(5)
         self.assertEqual(five_vm.get_stock(), 5, "Should be 5")
+    
+    def test_negative_init(self):
+        self.assertRaises(ValueError, VendingMachine.VendingMachine, -1)
 
 if __name__ == '__main__':
     unittest.main()
