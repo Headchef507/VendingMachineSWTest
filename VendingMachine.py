@@ -1,5 +1,6 @@
 class VendingMachine:
-    def __init__(self):
-        #self.inventory = inventory
-        print('hello world')
-p1 = VendingMachine()
+    def __init__(self, stock=0):
+        self.stock = stock
+    
+    def get_stock(self):
+        return 0
