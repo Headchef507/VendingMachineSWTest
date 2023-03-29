@@ -4,9 +4,6 @@ import VendingMachine
 
 class testVendingMachine(unittest.TestCase):
 
-    def test_sum(self):
-        self.assertEqual(sum([1, 2, 3]), 6, "Should be 6")
-    
     def test_request_bottle(self):
         vendingMachine = VendingMachine.VendingMachine()
         self.assertEqual(1,vendingMachine.request_bottle())
