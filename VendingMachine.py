@@ -3,4 +3,4 @@ class VendingMachine:
         self.stock = stock
     
     def get_stock(self):
-        return 0
+        return self.stock
