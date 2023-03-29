@@ -6,7 +6,7 @@ class VendingMachine:
         else:
             return 0
     def insert_coin(self):
-        self.coininsert = False
+        self.coininsert = True
     def __init__(self):
         #self.inventory = inventory
         print('hello world')
