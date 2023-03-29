@@ -12,7 +12,8 @@ class testVendingMachine(unittest.TestCase):
         self.assertEqual(1,vendingMachine.request_bottle())
     
     def test_request_bottle_where_coinIsInserted(self):
-        self.assertEqual(1,1)
+        vendingMachine = VendingMachine.VendingMachine()
+        self.assertEqual(1,vendingMachine.request_bottle())
 
 if __name__ == '__main__':
     unittest.main()
