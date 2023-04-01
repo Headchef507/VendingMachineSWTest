@@ -13,5 +13,3 @@ class VendingMachine:
            raise Exception("Stock is empty, please refill to continue") 
     def __init__(self, stock=0):
         self.stock = stock
-        print('hello world')
-p1 = VendingMachine()
