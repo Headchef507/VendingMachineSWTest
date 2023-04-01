@@ -7,6 +7,8 @@ class VendingMachine:
         else:
             return 0
     def insert_coin(self):
+        if(self.coininsert):
+            raise Exception("Coin already inserted. Please request a bottle") 
         if(self.stock > 0):
             self.coininsert = True
         else:
