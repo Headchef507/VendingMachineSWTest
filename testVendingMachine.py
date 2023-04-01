@@ -4,9 +4,9 @@ import VendingMachine
 
 class testVendingMachine(unittest.TestCase):
 
-    def test_request_bottle(self):
+    def test_request_bottle_where_coinIsNotInserted(self):
         vendingMachine = VendingMachine.VendingMachine()
-        self.assertEqual(1,vendingMachine.request_bottle())
+        self.assertEqual(0,vendingMachine.request_bottle())
     
     def test_request_bottle_where_coinIsInserted(self):
         vendingMachine = VendingMachine.VendingMachine()
