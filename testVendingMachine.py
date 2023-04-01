@@ -13,6 +13,9 @@ class testVendingMachine(unittest.TestCase):
         vendingMachine = VendingMachine.VendingMachine(1)
         vendingMachine.insert_coin()
         self.assertEqual(1,vendingMachine.request_bottle())
+
+    def test_request_bottle_check_if_stack_decreases(self):
+        self.assertEquals(0,1)
     
     def test_insertCoin_stockIsEmpty_exception(self):
         vendingMachine = VendingMachine.VendingMachine()
