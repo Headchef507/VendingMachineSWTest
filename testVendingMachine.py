@@ -9,7 +9,7 @@ class testVendingMachine(unittest.TestCase):
         self.assertEqual(0,vendingMachine.request_bottle())
     
     def test_request_bottle_where_coinIsInserted(self):
-        vendingMachine = VendingMachine.VendingMachine()
+        vendingMachine = VendingMachine.VendingMachine(1)
         vendingMachine.insert_coin()
         self.assertEqual(1,vendingMachine.request_bottle())
     
