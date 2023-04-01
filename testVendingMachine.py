@@ -17,6 +17,9 @@ class testVendingMachine(unittest.TestCase):
         vendingMachine = VendingMachine.VendingMachine()
         with self.assertRaises(Exception):
             vendingMachine.insert_coin()
+    def test_inserCoin_twice_exception(self):
+        with self.assertRaises(Exception):
+            0 + 1
 
 if __name__ == '__main__':
     unittest.main()
