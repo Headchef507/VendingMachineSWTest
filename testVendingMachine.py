@@ -13,8 +13,10 @@ class testVendingMachine(unittest.TestCase):
         vendingMachine.insert_coin()
         self.assertEqual(1,vendingMachine.request_bottle())
     
-    def test_insertCoin_stockIsEmpty(self):
-        self.assertEqual(0,1)
+    def test_insertCoin_stockIsEmpty_exception(self):
+        vendingMachine = VendingMachine.VendingMachine()
+        with self.assertRaises(Exception):
+            vendingMachine.insert_coin()
 
 if __name__ == '__main__':
     unittest.main()
