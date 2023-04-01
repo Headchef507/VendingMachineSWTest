@@ -15,7 +15,11 @@ class testVendingMachine(unittest.TestCase):
         self.assertEqual(1,vendingMachine.request_bottle())
 
     def test_request_bottle_twice_exception(self):
-        self.assertEqual(1,0)
+        vendingMachine = VendingMachine.VendingMachine(2)
+        vendingMachine.insert_coin()
+        vendingMachine.request_bottle()
+        with self.assertRaises(Exception):
+            vendingMachine.request_bottle()
 
     def test_request_bottle_check_if_stack_decreases(self):
         vendingMachine = VendingMachine.VendingMachine(1)
