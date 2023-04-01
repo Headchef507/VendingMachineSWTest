@@ -3,6 +3,7 @@ class VendingMachine:
     stock = 0
     def request_bottle(self):
         if(self.coininsert):
+            self.coininsert = False
             self.stock -= 1
             return 1
         else:
