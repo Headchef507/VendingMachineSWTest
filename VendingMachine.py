@@ -11,7 +11,7 @@ class VendingMachine:
             self.coininsert = True
         else:
            raise Exception("Stock is empty, please refill to continue") 
-    def __init__(self):
-        #self.inventory = inventory
+    def __init__(self, stock=0):
+        self.stock = stock
         print('hello world')
 p1 = VendingMachine()
