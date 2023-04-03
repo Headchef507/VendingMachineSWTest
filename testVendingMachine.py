@@ -16,7 +16,7 @@ class testVendingMachine(unittest.TestCase):
         vendingMachine = VendingMachine.VendingMachine([bottle])
         vendingMachine.insert_coin()
         vendingMachine.request_bottle()
-        self.assertEqual(0,vendingMachine.stock)
+        self.assertEqual(0,vendingMachine.get_size_of_stock())
 
     def test_request_bottle_check_if_stack_decreases_stack_is_not_empty(self):
         bottle = VendingMachine.Bottle()
@@ -24,7 +24,7 @@ class testVendingMachine(unittest.TestCase):
         vendingMachine = VendingMachine.VendingMachine([bottle,bottle2])
         vendingMachine.insert_coin()
         vendingMachine.request_bottle()
-        self.assertEqual(1,vendingMachine.stock)
+        self.assertEqual(1,vendingMachine.get_size_of_stock())
 
 #Negative TC
 
