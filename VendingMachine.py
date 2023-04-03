@@ -1,11 +1,11 @@
 class VendingMachine:
     coininsert = False
-    stock = 0
+    stock = []
     def request_bottle(self):
         if(self.coininsert):
             self.coininsert = False
-            self.stock -= 1
-            return 1
+            bottle = self.stock.pop(0)
+            return bottle
         else:
             raise Exception("Please insert a coin")
     def insert_coin(self):
