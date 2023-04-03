@@ -11,10 +11,12 @@ class VendingMachine:
     def insert_coin(self):
         if(self.coininsert):
             raise Exception("Coin already inserted. Please request a bottle") 
-        if(len(self.stock) > 0):
+        if(self.get_size_of_stock() > 0):
             self.coininsert = True
         else:
            raise Exception("Stock is empty, please refill to continue") 
+    def get_size_of_stock(self):
+        return len(self.stock)
     def __init__(self, stock=[]):
         self.stock = stock
 class Bottle:
