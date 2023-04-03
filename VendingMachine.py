@@ -1,4 +1,6 @@
 class VendingMachine:
+    max_stock = 0
+    stock = 0
     def __init__(self, stock=0):
         self.max_stock = 10
         self.check_value(stock)
@@ -19,3 +21,8 @@ class VendingMachine:
     
     def get_stock(self):
         return self.stock
+
+class Bottle:
+    milli_liter = 0
+    def __init__(self):
+        self.milli_liter = 500

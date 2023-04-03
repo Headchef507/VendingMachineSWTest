@@ -5,6 +5,8 @@ import VendingMachine
 class testVendingMachine(unittest.TestCase):
     def setUp(self) -> None:
         self.vm = VendingMachine.VendingMachine(5)
+        bottle1 = VendingMachine.Bottle()
+        bottle2 = VendingMachine.Bottle()
 
     # def test_sum(self):
         # self.assertEqual(sum([1, 2, 3]), 6, "Should be 6")
