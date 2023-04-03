@@ -1,15 +1,34 @@
+
+class Bottle:
+    milli_liter = 0
+    def __init__(self):
+        self.milli_liter = 500
+
+
 class VendingMachine:
-    coininsert = False
-    max_stock = 0
-    stock = []
-    def __init__(self, stock=[]):
-        self.max_stock = 10
-        self.stock = stock
+    coininsert:bool = False
+    capacity = 10
+    stock:list[Bottle] = []
+
+    def __init__(self, new_stock:list[Bottle]=[]):
+        self.populate(new_stock)
+    
+    def populate(self, new_stock):
+        if type(new_stock) != list:
+            raise TypeError("Given argument must be of type list.")
+        else:
+            if (len(new_stock) + len(self.stock)) > self.capacity:
+                raise IndexError("total amount of bottles may not exceed capacity.")
+            for bottle in new_stock:
+                if type(bottle) != Bottle:
+                    raise TypeError("Each item in the given list must be of type bottle.")
+                else:
+                    self.stock.append(bottle)
 
     def request_bottle(self):
         if(self.coininsert):
             self.coininsert = False
-            bottle = self.stock.pop(0)
+            bottle = self.stock.remove(0)
             return bottle
         else:
             raise Exception("Please insert a coin")
@@ -17,28 +36,13 @@ class VendingMachine:
     def insert_coin(self):
         if(self.coininsert):
             raise Exception("Coin already inserted. Please request a bottle") 
-        if(self.get_size_of_stock() > 0):
+        if(self.get_size_of_stock() < 1):
             self.coininsert = True
         else:
            raise Exception("Stock is empty, please refill to continue") 
         
     def get_size_of_stock(self):
         return len(self.stock)
-    
-    def check_value(self, stock=0):
-        if stock < 0:
-            raise ValueError("The value for stock must be a positive value.")
-        elif type(stock) != int:
-            raise TypeError("The value for stock must be an integer.")
-        elif stock > self.max_stock:
-            raise ValueError("The value for stock must not be greater than the maximum stock.")
-    
-    def refill(self, stock):
-        self.check_value(stock)
-        self.check_value(self.stock + stock)
-        self.stock = self.stock + stock
-
-class Bottle:
-    milli_liter = 0
-    def __init__(self):
-        self.milli_liter = 500
+   
+    def refill(self, stock:list[Bottle]):
+        self.populate(stock)
