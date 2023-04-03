@@ -11,7 +11,7 @@ class VendingMachine:
     def insert_coin(self):
         if(self.coininsert):
             raise Exception("Coin already inserted. Please request a bottle") 
-        if(self.stock > 0):
+        if(len(self.stock) > 0):
             self.coininsert = True
         else:
            raise Exception("Stock is empty, please refill to continue") 
