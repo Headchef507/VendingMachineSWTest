@@ -20,5 +20,8 @@ class testVendingMachine(unittest.TestCase):
     def test_negative_init(self):
         self.assertRaises(ValueError, VendingMachine.VendingMachine, -1)
 
+    def test_non_int_init(self):
+        self.assertRaises(TypeError, VendingMachine.VendingMachine, "3")
+
 if __name__ == '__main__':
     unittest.main()
