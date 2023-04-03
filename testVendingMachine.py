@@ -6,9 +6,10 @@ class testVendingMachine(unittest.TestCase):
 
 #Postive TC
     def test_request_bottle_where_coinIsInserted(self):
-        vendingMachine = VendingMachine.VendingMachine(1)
+        bottle = VendingMachine.Bottle()
+        vendingMachine = VendingMachine.VendingMachine([bottle])
         vendingMachine.insert_coin()
-        self.assertEqual(1,vendingMachine.request_bottle())
+        self.assertEqual(bottle,vendingMachine.request_bottle())
 
     def test_request_bottle_check_if_stack_decreases_now_stack_is_empty(self):
         vendingMachine = VendingMachine.VendingMachine(1)
