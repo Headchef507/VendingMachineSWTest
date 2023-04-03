@@ -12,13 +12,16 @@ class testVendingMachine(unittest.TestCase):
         self.assertEqual(bottle,vendingMachine.request_bottle())
 
     def test_request_bottle_check_if_stack_decreases_now_stack_is_empty(self):
-        vendingMachine = VendingMachine.VendingMachine(1)
+        bottle = VendingMachine.Bottle()
+        vendingMachine = VendingMachine.VendingMachine([bottle])
         vendingMachine.insert_coin()
         vendingMachine.request_bottle()
         self.assertEqual(0,vendingMachine.stock)
 
     def test_request_bottle_check_if_stack_decreases_stack_is_not_empty(self):
-        vendingMachine = VendingMachine.VendingMachine(2)
+        bottle = VendingMachine.Bottle()
+        bottle2 = VendingMachine.Bottle()
+        vendingMachine = VendingMachine.VendingMachine([bottle,bottle2])
         vendingMachine.insert_coin()
         vendingMachine.request_bottle()
         self.assertEqual(1,vendingMachine.stock)
@@ -31,7 +34,9 @@ class testVendingMachine(unittest.TestCase):
             vendingMachine.request_bottle()
 
     def test_request_bottle_twice_exception(self):
-        vendingMachine = VendingMachine.VendingMachine(2)
+        bottle = VendingMachine.Bottle()
+        bottle2 = VendingMachine.Bottle()
+        vendingMachine = VendingMachine.VendingMachine([bottle,bottle2])
         vendingMachine.insert_coin()
         vendingMachine.request_bottle()
         with self.assertRaises(Exception):
@@ -43,7 +48,8 @@ class testVendingMachine(unittest.TestCase):
             vendingMachine.insert_coin()
 
     def test_insertCoin_twice_exception(self):
-        vendingMachine = VendingMachine.VendingMachine(1)
+        bottle = VendingMachine.Bottle()
+        vendingMachine = VendingMachine.VendingMachine([bottle])
         vendingMachine.insert_coin()
         with self.assertRaises(Exception):
             vendingMachine.insert_coin()
