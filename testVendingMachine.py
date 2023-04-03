@@ -4,7 +4,7 @@ import VendingMachine
 
 class testVendingMachine(unittest.TestCase):
     def setUp(self) -> None:
-        pass
+        vm = VendingMachine.VendingMachine(5)
 
     # def test_sum(self):
         # self.assertEqual(sum([1, 2, 3]), 6, "Should be 6")
@@ -27,16 +27,27 @@ class testVendingMachine(unittest.TestCase):
         self.assertRaises(ValueError, VendingMachine.VendingMachine, 11)
 
     def test_refill5(self):
-        vm = VendingMachine.VendingMachine(5)
-        vm.refill(5)
+        # vm = VendingMachine.VendingMachine(5)
+        self.vm.refill(5)
         self.assertEqual(vm.get_stock(), 10, "Should be 10")
 
     def test_refill3(self):
-        vm = VendingMachine.VendingMachine(5)
-        vm.refill(3)
+        # vm = VendingMachine.VendingMachine(5)
+        self.vm.refill(3)
         self.assertEqual(vm.get_stock(), 8, "Should be 8")
     
-    # def test_refill_str(self)
+    def test_refill_str(self):
+        self.assertRaises(TypeError, self.vm.refill("3"))
+    
+    def test_refill_bool(self):
+        self.assertRaises(TypeError, self.vm.refill(True))
+    
+    def test_refill_negative(self):
+        self.assertRaises(ValueError, self.vm.refill(-1))
+
+    def test_refill_greater_than_max(self):
+        self.assertRaises(ValueError, self.vm.refill(7))
+
 
 if __name__ == '__main__':
     unittest.main()
