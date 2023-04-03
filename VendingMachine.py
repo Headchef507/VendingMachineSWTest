@@ -12,5 +12,8 @@ class VendingMachine:
         elif stock > self.max_stock:
             raise ValueError("The value for stock must not be greater than the maximum stock.")
     
+    def refill(self, stock):
+        self.stock = 10
+    
     def get_stock(self):
         return self.stock
