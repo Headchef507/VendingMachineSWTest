@@ -36,7 +36,7 @@ class testVendingMachine(unittest.TestCase):
         vm.refill(3)
         self.assertEqual(vm.get_stock(), 8, "Should be 8")
     
-    def test_refill_str(self)
+    # def test_refill_str(self)
 
 if __name__ == '__main__':
     unittest.main()
