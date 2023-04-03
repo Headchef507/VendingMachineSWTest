@@ -13,6 +13,8 @@ class VendingMachine:
             raise ValueError("The value for stock must not be greater than the maximum stock.")
     
     def refill(self, stock):
+        self.check_value(stock)
+        self.check_value(self.stock + stock)
         self.stock = self.stock + stock
     
     def get_stock(self):
