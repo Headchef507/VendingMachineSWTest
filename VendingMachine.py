@@ -10,7 +10,8 @@ class VendingMachine:
     capacity = 10
     stock:list[Bottle] = []
 
-    def __init__(self, new_stock:list[Bottle]=[]):
+    # def __init__(self, new_stock:list[Bottle]=[]):
+    def __init__(self, new_stock=[]):
         self.populate(new_stock)
     
     def populate(self, new_stock):
@@ -44,5 +45,5 @@ class VendingMachine:
     def get_size_of_stock(self):
         return len(self.stock)
    
-    def refill(self, stock:list[Bottle]):
+    def refill(self, stock):
         self.populate(stock)

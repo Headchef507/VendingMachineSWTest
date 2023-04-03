@@ -56,19 +56,19 @@ class testVendingMachine(unittest.TestCase):
         del vm
     
     def test_refill_str(self):
-        self.assertRaises(TypeError, self.vm.refill, "3")
+        self.assertRaises(TypeError, vm.refill, "3")
         del vm
     
     def test_refill_bool(self):
-        self.assertRaises(TypeError, self.vm.refill, True)
+        self.assertRaises(TypeError, vm.refill, True)
         del vm
     
     def test_refill_negative(self):
-        self.assertRaises(ValueError, self.vm.refill, -1)
+        self.assertRaises(ValueError, vm.refill, -1)
         del vm
 
     def test_refill_greater_than_max(self):
-        self.assertRaises(ValueError, self.vm.refill, 7)
+        self.assertRaises(ValueError, vm.refill, 7)
         del vm
 
 #Postive TC
