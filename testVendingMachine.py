@@ -22,6 +22,9 @@ class testVendingMachine(unittest.TestCase):
 
     def test_non_int_init(self):
         self.assertRaises(TypeError, VendingMachine.VendingMachine, "3")
+    
+    def test_max_init(self):
+        self.assertRaises(ValueError, VendingMachine.VendingMachine, 11)
 
 if __name__ == '__main__':
     unittest.main()
