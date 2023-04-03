@@ -26,5 +26,10 @@ class testVendingMachine(unittest.TestCase):
     def test_max_init(self):
         self.assertRaises(ValueError, VendingMachine.VendingMachine, 11)
 
+    def test_refill5(self):
+        vm = VendingMachine.VendingMachine(5)
+        vm.refill(5)
+        self.assertEqual(vm.get_stock(), 10, "Should be 10")
+
 if __name__ == '__main__':
     unittest.main()
