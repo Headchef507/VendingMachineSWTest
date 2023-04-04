@@ -4,7 +4,7 @@ import VendingMachine
 
 class testVendingMachine(unittest.TestCase):
     def setUp(self):
-        # self.vm = VendingMachine.VendingMachine(5)
+     #   self.vm = VendingMachine.VendingMachine(5)
         self.bottle1 = VendingMachine.Bottle()
         self.bottle2 = VendingMachine.Bottle()
         self.bottle3 = VendingMachine.Bottle()
@@ -44,7 +44,7 @@ class testVendingMachine(unittest.TestCase):
         lst = [self.bottle1, self.bottle2, self.bottle3, self.bottle4, self.bottle5]
         vm = VendingMachine.VendingMachine(lst)
         five_lst = [self.bottle6, self.bottle7, self.bottle8, self.bottle9, self.bottle10]
-        self.assertEqual(vm.get_size_of_stock(), five_lst, "Should be 10")
+        self.assertEqual(vm.get_size_of_stock(), len(five_lst), "Should be 10")
         del vm
 
     def test_refill3(self):
@@ -56,19 +56,23 @@ class testVendingMachine(unittest.TestCase):
         del vm
     
     def test_refill_str(self):
+        vm = VendingMachine.VendingMachine()
         self.assertRaises(TypeError, vm.refill, "3")
         del vm
     
     def test_refill_bool(self):
-        self.assertRaises(TypeError, vm.refill, True)
-        del vm
+        vm_test_refill_bool = VendingMachine.VendingMachine()
+        self.assertRaises(TypeError, vm_test_refill_bool.refill, True)
+        del vm_test_refill_bool
     
     def test_refill_negative(self):
-        self.assertRaises(ValueError, vm.refill, -1)
+        vm = VendingMachine.VendingMachine()
+        self.assertRaises(TypeError, vm.refill, -1)
         del vm
 
     def test_refill_greater_than_max(self):
-        self.assertRaises(ValueError, vm.refill, 7)
+        vm = VendingMachine.VendingMachine()
+        self.assertRaises(TypeError, vm.refill, 7)
         del vm
 
 #Postive TC
