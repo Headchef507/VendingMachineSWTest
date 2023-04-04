@@ -27,7 +27,7 @@ class VendingMachine:
                     self.stock.append(bottle)
         
     
-    def populate(self, new_stock):
+    def refill(self, new_stock):
         if type(new_stock) != list:
             raise TypeError("Given argument must be of type list.")
         else:
@@ -58,5 +58,3 @@ class VendingMachine:
     def get_size_of_stock(self):
         return len(self.stock)
    
-    def refill(self, stock):
-        self.populate(stock)
